@@ -1,6 +1,10 @@
 # ThesisFlow
 ThesisFlow: Thesis Management Support System
 
+Team Members: 
+evelinastavropoulou
+annazacharaki
+
 A complete web-based application developed for managing the full lifecycle of thesis projects in an academic environment. The project was created as part of the "Programming & Systems on the World Wide Web" course (University of Patras, CEID, Academic Year 2024–2025).
 
 🎯 Overview
