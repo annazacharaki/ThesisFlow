@@ -1,0 +1,196 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* πιάνει όλο το viewport */
+}
+
+
+main {
+    flex: 1 0 auto;
+}
+
+
+
+.navbar {
+    background-color: #1a1a1a !important; /* Σκούρο μαύρο */
+    padding: 15px;
+    border-bottom: 3px solid #008b82; /* Μπορντό γραμμή */
+}
+
+.navbar a {
+    color: #e0e0e0 !important;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+    color: #008b82 !important; /* Μπορντό στο hover */
+}
+
+
+header {
+    background: linear-gradient(to bottom, #1a1a1a, #f5f5f5); /* Από μαύρο σε ανοιχτό γκρι */
+    color: black;
+    padding: 80px 0;
+    text-align: center;
+}
+
+
+header h1 {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+header p {
+    color: black;
+    font-size: 1.2rem;
+}
+
+
+header .btn, 
+.btn-primary {
+    background-color: #008b82 !important; 
+    border: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 6px;
+    transition: background 0.3s ease-in-out;
+}
+
+header .btn:hover, 
+.btn-primary:hover {
+    background-color: #008b82b6 !important; 
+}
+
+
+#feed {
+    background-color: #f5f5f5 !important; /* Ανοιχτό γκρι */
+    color: black !important;
+    padding: 60px 0;
+    text-align: center;
+}
+
+
+.card {
+    border: none;
+    background: #222; /* Σκούρο γκρι-μαύρο */
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(139, 0, 0, 0.2); /* Σκιά με μπορντό τόνο */
+    padding: 20px;
+    transition: none;
+}
+
+.card:hover {
+    transform: none;
+}
+
+/* Footer */
+.footer {
+    flex-shrink: 0; 
+    background: #111;
+    color: #e0e0e0;
+    padding: 15px;
+    text-align: center;
+    font-size: 14px;
+    width: 100%;
+    position: relative;
+}
+
+
+
+section {
+    padding: 50px 0;
+}
+
+section h2 {
+    text-align: center;
+    color: #008b82; 
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+
+form {
+    max-width: 500px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    font-weight: bold;
+    color: #333;
+}
+
+form input, form select {
+    border: 2px solid #008b82;
+    border-radius: 6px;
+}
+
+form button {
+    width: 100%;
+    margin-top: 15px;
+}
+
+
+button,
+.btn,
+.btn-primary,
+.btn:focus,
+.btn:active,
+.btn:focus-visible,
+button:focus,
+button:active,
+button:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+
+select:focus,
+select:focus-visible,
+.form-select:focus,
+.form-control:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #008b82 !important; 
+}
+
+
+:root {
+  --bs-btn-focus-box-shadow: none !important;
+  --bs-btn-focus-shadow-rgb: 0, 0, 0 !important;
+}
+
+
+.btn-check:focus + .btn,
+.btn-check:focus-visible + .btn {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.swal2-confirm {
+  background-color: #008b82 !important;
+  border-color: #008b82 !important;
+  color: #fff !important;
+  border-radius: 6px !important;
+}
+
+.swal2-confirm:hover {
+  background-color: #008b82b6 !important;
+}
+
