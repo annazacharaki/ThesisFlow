@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF to HTML Converter</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .output {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 20px;
+            overflow: auto;
+            height: 400px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        label {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        label:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>PDF to HTML Converter</h1>
+        <label for="pdfInput">Choose PDF</label>
+        <input type="file" id="pdfInput" accept="application/pdf">
+        <button id="convertButton">Convert to HTML</button>
+
+        <div class="card" id="output"></div>
+    </div>
+
+    <script>
+        document.getElementById('convertButton').addEventListener('click', async () => {
+            const fileInput = document.getElementById('pdfInput');
+            if (!fileInput.files.length) {
+                alert('Please upload a PDF file!');
+                return;
+            }
+
+            const file = fileInput.files[0];
+
+            // Check if PDF.js is available
+            if (!window.pdfjsLib) {
+                alert('PDF.js library is not loaded. Please include it!');
+                return;
+            }
+
+            const reader = new FileReader();
+
+            reader.onload = async (e) => {
+                const typedArray = new Uint8Array(e.target.result);
+                const pdf = await pdfjsLib.getDocument(typedArray).promise;
+
+                let htmlOutput = '';
+
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    const page = await pdf.getPage(i);
+                    const textContent = await page.getTextContent();
+
+                    htmlOutput += `<div><h3>Page ${i}</h3>`;
+                    textContent.items.forEach((item) => {
+                        htmlOutput += `<p>${item.str}</p>`;
+                    });
+                    htmlOutput += '</div>';
+                }
+
+                document.getElementById('output').innerHTML = htmlOutput;
+            };
+
+            reader.readAsArrayBuffer(file);
+        });
+    </script>
+
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+</body>
+
+</html>
